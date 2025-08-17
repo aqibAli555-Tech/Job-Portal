@@ -1,0 +1,283 @@
+@media (max-width: 768px) {
+    .profile_button {
+        margin-top: 30px !important;
+    }
+}
+
+.class-icon {
+    width: 13px;
+}
+
+.user-panel-sidebar ul.acc-list li a {
+
+    padding: 10px 10px;
+}
+
+.user-panel-sidebar ul.acc-list li a i {
+    font-size: 16px;
+}
+
+.badge-important-circle {
+    position: absolute;
+    top: 21px;
+    right: 0;
+    transform: translate(50%, -50%);
+    width: 24px;
+    height: 20px;
+    border-radius: 10rem !important;
+    background-color: #d9534f !important;
+    border: 2px solid #d9534f;
+    padding: 2px;
+}
+
+#signupForm .form-control {
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid #615583 !important;
+    border-radius: 0px;
+}
+
+#signupBtn {
+    background: #22d3fd;
+    border-color: #22d3fd;
+}
+
+.icon-color-3,
+.icon-color-2,
+.icon-color-1 {
+    color: #22d3fd !important
+}
+
+
+.container-redio {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selector-redio {
+    position: relative;
+    width: 100%;
+    background-color: var(--smoke-white);
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 9999px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, .2);
+}
+
+.selecotr-item {
+    position: relative;
+    flex-basis: calc(82% / 2);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px
+}
+
+.selector-item_radio {
+    appearance: none;
+    display: none;
+}
+
+.selector-item_label {
+    position: relative;
+    height: 80%;
+    width: 100%;
+    text-align: center;
+    border-radius: 9999px;
+    line-height: 400%;
+    font-weight: 900;
+    transition-duration: .5s;
+    transition-property: transform, color, box-shadow;
+    transform: none;
+}
+
+.selector-item_radio:checked + .selector-item_label {
+    background-color: #615583;
+    color: var(--white);
+    box-shadow: 0 0 4px rgba(0, 0, 0, .5), 0 2px 4px rgba(0, 0, 0, .5);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .selector-redio {
+        width: 90%;
+    }
+}
+
+.select2-container--default {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+    border: none;
+    border-bottom: 1px solid #615583;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple,
+.select2-container--default .select2-selection--multiple {
+    border: none;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background: #615583;
+    color: #fff;
+}
+
+.button_user_type {
+    float: left;
+    margin: 0 5px 0 0;
+    width: 150px;
+    height: 57px;
+    position: relative;
+}
+
+.button_user_type label,
+.button_user_type input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.button_user_type input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
+}
+
+.button_user_type input[type="radio"]:checked + label {
+    background: #20b8be;
+    border-radius: 4px;
+}
+
+.button_user_type label {
+    cursor: pointer;
+    z-index: 90;
+    line-height: 1.8em;
+}
+
+@media (max-width: 700px) {
+    .btn-register {
+        max-width: 100% !important;
+    }
+}
+
+.quickLoginLeft {
+    padding: 50px;
+    padding-top: 200px !important;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn[data-toggle="collapse"]:focus, 
+.btn[data-toggle="collapse"]:active, 
+.btn[data-toggle="collapse"]:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.action-td p {
+    margin-bottom: 5px;
+}
+
+:root {
+    --switches-bg-color: #615583;
+    --switches-label-color: white;
+    --switch-bg-color: white;
+    --switch-text-color: black;
+}
+
+.switches-container {
+    width: 16rem;
+    position: relative;
+    display: flex;
+    padding: 0;
+    position: relative;
+    background: var(--switches-bg-color);
+    line-height: 3rem;
+    border-radius: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.switches-container input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+}
+
+.switches-container label {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    color: var(--switches-label-color);
+}
+
+.switch-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 0.15rem;
+    z-index: 3;
+    transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+    /* transition: transform 1s; */
+}
+
+/* switch box highlighter */
+.switch {
+    border-radius: 3rem;
+    background: var(--switch-bg-color);
+    height: 100%;
+}
+
+/* switch box labels
+    - default setup
+    - toggle afterwards based on radio:checked status
+*/
+.switch div {
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    display: block;
+    color: var(--switch-text-color);
+    transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+    will-change: opacity;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* slide the switch box from right to left */
+.switches-container input:nth-of-type(1):checked ~ .switch-wrapper {
+    transform: translateX(0%);
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(2):checked ~ .switch-wrapper {
+    transform: translateX(100%);
+}
+
+/* toggle the switch box labels - first checkbox:checked - show first switch div */
+.switches-container input:nth-of-type(1):checked ~ .switch-wrapper .switch div:nth-of-type(1) {
+    opacity: 1;
+}
+
+/* toggle the switch box labels - second checkbox:checked - show second switch div */
+.switches-container input:nth-of-type(2):checked ~ .switch-wrapper .switch div:nth-of-type(2) {
+    opacity: 1;
+}
+

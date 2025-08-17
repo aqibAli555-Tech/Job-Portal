@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="58961b1c-1336-4b04-ab1d-447a4d6d1ba6" name="HFJ Testing" url="http://69.48.155.234">
+        <fileTransfer rootFolder="/public_html/testing" host="69.48.155.234" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="81d44be0-c72c-41a9-8ef9-867ceffefe6f" name="hfj live" url="http://69.48.155.234">
+        <fileTransfer rootFolder="/public_html" host="69.48.155.234" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

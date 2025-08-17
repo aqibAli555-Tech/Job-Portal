@@ -1,0 +1,110 @@
+
+@extends('layouts.master')
+@section('content')
+@includeFirst([config('larapen.core.customizedViewPath') . 'common.spacer', 'common.spacer'])
+<div class="main-container">
+    <div class="container">
+        <div class="row">
+            @if (isset($errors) and $errors->any())
+            <?php $errorMessage = ''; ?>
+            <div class="col-xl-12" style="display:none;">
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><strong>{{ t('oops_an_error_has_occurred') }}</strong></h5>
+                    <ul class="list list-check">
+                        @foreach ($errors->all() as $error)
+                        <?php $errorMessage .= "<li>" . $error . "</li>" ?>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @if(!empty($errorMessage))
+            <script>
+                Swal.fire({
+                    html: "<?=$errorMessage?>",
+                    icon: "error",
+                    confirmButtonText: "<u>Ok</u>",
+                });
+            </script>
+            @endif
+            @endif
+
+            @if (Session::has('flash_notification'))
+            <div class="col-xl-12">
+                <div class="row">
+                    <div class="col-xl-12">
+                        @include('flash::message')
+                    </div>
+                </div>
+            </div>
+            @endif
+
+            <div class="col-lg-5 col-md-8 col-sm-10 col-xs-12 login-box">
+                <div class="card card-default">
+                    <div class="panel-intro text-center">
+                        <h2 class="logo-title">
+                            <span class="logo-icon"> </span> {{ t('Reset Password') }} <span> </span>
+                        </h2>
+                    </div>
+
+                    <div class="card-body">
+                        <form method="POST" action="{{ url('update-password') }}">
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="token" value="{{ $token }}">
+
+                            <!-- login -->
+                            <?php $loginError = (isset($errors) and $errors->has('login')) ? ' is-invalid' : ''; ?>
+                            <div class="form-group" hidden>
+                                <label for="login" class="control-label">{{ t('Login') . ' (' . getLoginLabel() . ')' }}:</label>
+                                <input type="text" name="login" hidden value="{{$reset_email}}" placeholder="{{ getLoginLabel() }}" class="form-control{{ $loginError }}">
+                            </div>
+
+                            <!-- password -->
+                            <?php $passwordError = (isset($errors) and $errors->has('password')) ? ' is-invalid' : ''; ?>
+                            <div class="form-group">
+                                <label for="password" class="control-label">{{ t('Password') }}:</label>
+                                <input type="password" name="password" placeholder="" class="form-control email{{ $passwordError }}">
+                            </div>
+
+                            <!-- password_confirmation -->
+                            <?php $passwordError = (isset($errors) and $errors->has('password')) ? ' is-invalid' : ''; ?>
+                            <div class="form-group">
+                                <label for="password_confirmation" class="col-form-label">{{ t('Password Confirmation') }}:</label>
+                                <input type="password" name="password_confirmation" placeholder="" class="form-control email{{ $passwordError }}">
+                            </div>
+
+                            @includeFirst([config('larapen.core.customizedViewPath') . 'layouts.inc.tools.recaptcha', 'layouts.inc.tools.recaptcha'], ['noLabel' => true])
+
+                            <!-- Submit -->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">{{ t('Reset the Password') }}</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <a href="{{ \App\Helpers\UrlGen::login() }}"> {{ t('Back to the Log In page') }} </a>
+                    </div>
+                </div>
+                <div class="login-box-btm text-center">
+                    <p>
+                        {{ t('Do not have an account') }} <br>
+                        <a href="<?= url('registration') ?>"><strong>{{ t('sign_up_') }}</strong></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('after_scripts')
+<script>
+    $(document).ready(function () {
+        $("#pwdBtn").click(function () {
+            $("#pwdForm").submit();
+            return false;
+        });
+    });
+</script>
+@endsection

@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Helpers\Search\Traits;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
+trait Having
+{
+    protected function applyHaving()
+    {
+        if (!(isset($this->posts) && isset($this->having))) {
+            return;
+        }
+
+        // Get valid columns name
+        $this->having = collect($this->having)->map(function ($value, $key) {
+            if (Str::contains($value, '.')) {
+                $value = DB::getTablePrefix() . $value;
+            }
+
+            return $value;
+        })->toArray();
+
+        // Set HAVING
+        $having = '';
+        if (is_array($this->having) && count($this->having) > 0) {
+            foreach ($this->having as $key => $value) {
+                if (trim($value) == '') {
+                    continue;
+                }
+
+                if ($having == '') {
+                    $having .= $value;
+                } else {
+                    $having .= ' AND ' . $value;
+                }
+            }
+        }
+
+        if (!empty($having)) {
+            $this->posts->havingRaw($having);
+        }
+    }
+}

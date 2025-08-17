@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'failed' => 'ha fallado',
+    'email_failed' => 'correo electrónico fallido',
+    'phone_failed' => 'teléfono falló',
+    'phone_count' => 'número de teléfono',
+    'throttle' => 'acelerador',
+    'login' => 'acceso',
+    'register' => 'Registrarse',
+    'account_info' => 'informacion de cuenta',
+    'change_info' => 'cambiar información',
+    'change_password' => 'Cambia la contraseña',
+    'logout' => 'cerrar sesión',
+    'remember_me' => 'Recuérdame',
+    'information_updated' => 'información actualizada',
+    'name' => 'nombre',
+    'email' => 'Email',
+    'password' => 'clave',
+    'confirm_password' => 'Confirmar contraseña',
+    'old_password' => 'Contraseña anterior',
+    'new_password' => 'Nueva contraseña',
+    'cancel' => 'cancelar',
+    'reset_password' => 'restablecer la contraseña',
+    'send_password_reset_link' => 'enviar enlace de restablecimiento de contraseña',
+    'forgot_password_question' => 'olvidé la pregunta de la contraseña',
+    'wrong_password' => 'contraseña incorrecta',
+    'password_updated' => 'Contraseña actualiza',
+    'registration_closed' => 'registro cerrado',
+
+];
